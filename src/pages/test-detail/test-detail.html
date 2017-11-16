@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Truck Info</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!--
+<ion-content>
+  <div class="item-profile" text-center #profilePic [style.background-image]="'http://localhost:8080/image/'+truck.timage">
+  </div>
+
+  <div class="item-detail" padding>
+    <h2>NO. {{truck.tid}} | {{truck.tname}}</h2>
+    <p>{{truck.taddress}}</p>
+    <p></p>
+  </div>
+</ion-content> -->
+
+<ion-content class="card-background-page">
+  <img class="item-profile" text-center src="http://localhost:8080/image/{{truck.timage}}" alt="x">
+  <div class="item-detail" padding>
+    <h2>NO. {{truck.tid}} | {{truck.tname}}</h2>
+    <p>{{truck.taddress}}</p>
+  </div>
+  <!-- <ion-card>
+    <img src="http://localhost:8080/image/{{truck.timage}}"/>
+    <ion-card-content>
+      <ion-card-title>
+        NO. {{truck.tid}} | {{truck.tname}}
+      </ion-card-title>
+      <p>
+        {{truck.taddress}}
+      </p>
+    </ion-card-content>
+  </ion-card> -->
+</ion-content>

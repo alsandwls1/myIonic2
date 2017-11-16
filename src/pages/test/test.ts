@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { TestProvider } from '../../providers/test/test';
+import { TruckServiceProvider } from '../../providers/truck-service/truck-service';
 /**
  * Generated class for the TestPage page.
  *
@@ -14,26 +14,31 @@ import { TestProvider } from '../../providers/test/test';
   selector: 'page-test',
   templateUrl: 'test.html',
 })
+
 export class TestPage {
   private trucks: Array<any>;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public testProvider: TestProvider,
+    public truckService: TruckServiceProvider,
 
     ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TestPage');
-    this.testProvider.getTrucks().subscribe(trucks => {
-      console.log(trucks);
-      console.log(trucks.text());
-
+    this.truckService.getTrucks().subscribe(trucks => {
       let json = trucks.text();
       json = JSON.parse(json);
       this.trucks = json;
+    });
+  }
+
+  openItem(truck: string) {
+    console.log('openItem = '+truck);
+    this.navCtrl.push('TestDetailPage', {
+      truck: truck
     });
   }
 

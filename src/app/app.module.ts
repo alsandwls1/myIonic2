@@ -7,10 +7,10 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { TestPageModule } from '../pages/test/test.module';
+import { TestDetailPageModule } from '../pages/test-detail/test-detail.module';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { TestProvider } from '../providers/test/test';
 
 @NgModule({
   declarations: [
@@ -23,6 +23,7 @@ import { TestProvider } from '../providers/test/test';
     HttpModule,
     IonicModule.forRoot(MyApp),
     TestPageModule,
+    TestDetailPageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -34,7 +35,6 @@ import { TestProvider } from '../providers/test/test';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TestProvider
   ]
 })
 export class AppModule {}

@@ -1,41 +1,41 @@
 <ion-header>
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Truck List</ion-title>
   </ion-navbar>
 </ion-header>
 
+<!-- 이미지 원형, button을 누르지 않고 화면전환 -->
+<ion-content>
+  <ion-list >
+    <button ion-item *ngFor="let truck of trucks" (click)="openItem(truck)">
+      <ion-avatar item-start>
+        <img src="http://localhost:8080/image/{{truck.timage}}">
+      </ion-avatar>
+      <h2>NO. {{truck.tid}} | {{truck.tname}}</h2>
+      <p>{{truck.taddress}}</p>
+    </button>
+  </ion-list>
+</ion-content>
 
-<!-- <ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let truck of trucks">
-      <h2>id: {{truck.tid}}</h2>
-      <h2>name: {{truck.tname}}</h2>
-      <h2>address:{{truck.taddress}}</h2>
-      <h2>address:{{truck.timage}}</h2>
-      <img src="http://localhost:8080/image/{{truck.timage}}">
+<!-- 이미지 사각형 -view버튼을 눌러서 화면전환-->
+<!-- <ion-content>
+  <ion-list *ngFor="let truck of trucks">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="http://localhost:8080/image/{{truck.timage}}">
+      </ion-thumbnail>
+      <h2>NO. {{truck.tid}} | {{truck.tname}}</h2>
+      <p>{{truck.taddress}}</p>
+      <button ion-button clear item-end (click)="openItem(truck)">View</button>
     </ion-item>
   </ion-list>
 </ion-content> -->
-<!-- <ion-content>
-  <ion-list>
-    <ion-item-sliding *ngFor="let truck of trucks">
-      <button ion-item (click)="openItem(item)">
-        <ion-avatar item-start>
-          <img src="http://localhost:8080/image/{{truck.timage}}" />
-        </ion-avatar>
-        <h2>id: {{truck.tid}} | {{truck.tname}}</h2>
-        <p>{{truck.taddress}}</p>
-      </button>
 
-      <ion-item-options>
-        <button ion-button color="danger" (click)="deleteItem(item)">
-          DELETE
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
-</ion-content> -->
-<ion-content class="cards-bg">
+<!-- 카드형 -->
+<!-- <ion-content class="cards-bg">
   <ion-card *ngFor="let truck of trucks">
     <img src="http://localhost:8080/image/{{truck.timage}}" />
     <ion-card-content>
@@ -46,26 +46,14 @@
         {{truck.taddress}}
       </p>
     </ion-card-content>
-
     <ion-row no-padding>
-      <ion-col>
-        <button ion-button clear small color="danger" icon-start>
-          <ion-icon name='star'></ion-icon>
-          Favorite
-        </button>
-      </ion-col>
       <ion-col text-center>
-        <button ion-button clear small color="danger" icon-start>
-          <ion-icon name='log-in'></ion-icon>
-          Enter
-        </button>
-      </ion-col>
-      <ion-col text-right>
-        <button ion-button clear small color="danger" icon-start>
-          <ion-icon name='logo-facebook'></ion-icon>
-          fb-like
+        <button ion-button clear small color="info" (click)="openItem(truck)" icon-start>
+          <ion-icon name='return-right'></ion-icon>
+          들어가기
+          <ion-icon name='share-alt'></ion-icon>
         </button>
       </ion-col>
     </ion-row>
   </ion-card>
-</ion-content>
+</ion-content> -->
