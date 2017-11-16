@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Truck List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<!-- <ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let truck of trucks">
+      <h2>id: {{truck.tid}}</h2>
+      <h2>name: {{truck.tname}}</h2>
+      <h2>address:{{truck.taddress}}</h2>
+      <h2>address:{{truck.timage}}</h2>
+      <img src="http://localhost:8080/image/{{truck.timage}}">
+    </ion-item>
+  </ion-list>
+</ion-content> -->
+<!-- <ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let truck of trucks">
+      <button ion-item (click)="openItem(item)">
+        <ion-avatar item-start>
+          <img src="http://localhost:8080/image/{{truck.timage}}" />
+        </ion-avatar>
+        <h2>id: {{truck.tid}} | {{truck.tname}}</h2>
+        <p>{{truck.taddress}}</p>
+      </button>
+
+      <ion-item-options>
+        <button ion-button color="danger" (click)="deleteItem(item)">
+          DELETE
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content> -->
+<ion-content class="cards-bg">
+  <ion-card *ngFor="let truck of trucks">
+    <img src="http://localhost:8080/image/{{truck.timage}}" />
+    <ion-card-content>
+      <ion-card-title>
+        NO. {{truck.tid}} | {{truck.tname}}
+      </ion-card-title>
+      <p>
+        {{truck.taddress}}
+      </p>
+    </ion-card-content>
+
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='star'></ion-icon>
+          Favorite
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='log-in'></ion-icon>
+          Enter
+        </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='logo-facebook'></ion-icon>
+          fb-like
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>
